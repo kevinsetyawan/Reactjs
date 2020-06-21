@@ -1,7 +1,10 @@
 import React from 'react'
+import Blog from './Blog'
 
 const Home = () => {
-    return <div><h1>Ini Adalah Home</h1></div>
+    return <div>
+        <Blog/>
+    </div>
 }
 
 export default Home;
