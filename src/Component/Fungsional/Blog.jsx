@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+import './CSS/Blog.css';
 
 const Blog = () => {
-return <div>
+return <div className="blog-wrap">
     <img src="https://placeimg.com/640/480/any" alt=""/>
-    <p>Tanggal Blog</p>
-    <p>Judul Blog</p>
-    <p>Summary Blog</p>
+    <p>(props.tanggal)</p>
+    <p>(props.judul)</p>
+    <p>(proops.summary)</p>
 </div>
 }
 
