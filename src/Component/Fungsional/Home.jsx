@@ -4,7 +4,7 @@ import Blog from './Blog';
 const Home = () => {
     return <div>
         {
-            <Produk/>
+            <Produk nama="Laptop 2020" stock="10" harga="33000000" status="Tersedia"/>
         }
     </div>
 }
