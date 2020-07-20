@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class Grandchild extends Component {
-constructor(props) {
-    super(props)
+class GrandChild extends Component {
+    constructor(props) {
+        super(props);
 
-    this.state = {
+        this.state = {
 
+        };
     }
-}
 
     render() {
         return (
@@ -19,4 +19,4 @@ constructor(props) {
     }
 }
 
-export default Grandchild;
+export default GrandChild

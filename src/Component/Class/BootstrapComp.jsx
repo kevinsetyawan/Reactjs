@@ -3,15 +3,16 @@ import { Container, Row, Table } from 'reactstrap';
 
 class BootstrapComp extends Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         this.state = {
 
-        }
+        };
     }
 
     render() {
         return (
+
             <div>
                 <Container>
                     <Row>
@@ -48,8 +49,9 @@ class BootstrapComp extends Component {
                     </Row>
                 </Container>
             </div>
+
         );
     }
 }
 
-export default BootstrapComp;
+export default BootstrapComp
