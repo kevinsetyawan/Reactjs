@@ -1,32 +1,12 @@
-import React, {useReducer} from 'react';
+import React, {useReducer, useContext} from 'react';
 import { Container, Row, Col, Card, CardImg, Button } from 'reactstrap';
-
-const initialState = {
-    jumlah: 1,
-    hargasatuan: 10000,
-    hargatotal: 10000
-}
-
-const reducer = (state, action) => {
-    switch (action. type) {
-        case 'tambah': return {
-            ...state,
-            jumlah: state.jumlah + 1,
-            hargatotal: state.hargasatuan + (state.hargasatuan * state.jumlah)
-        }
-        case 'kurang': return {
-            ...state,
-            jumlah: state.jumlah - 1,
-            hargatotal: (state.hargasatuan * state.jumlah) - state.hargasatuan
-        }
-        default:
-            return state
-    }
-}
+import {NavLink} from 'react-router-dom'
+import { keranjangContext } from '../../../App';
 
 function HooksReducer() {
 
-    const[count, dispatch] = useReducer(reducer, initialState)
+    const countContext = useContext(keranjangContext)
+
     return (
         <Container>
             <br/>
@@ -37,18 +17,20 @@ function HooksReducer() {
                     </Card>
                 </Col>
                 <Col xs="6">
-                    <h3>Action Figure Naruto</h3>
+                    <h3>ASUS PRO</h3>
                     <p>Harga</p>
-                    <h3>Rp. {count.hargasatuan}</h3>
+                    <h3>Rp. {countContext.keranjangState.hargatotal}</h3>
                     <p>Jumlah</p>
                     <Row>
-                    <Col><Button onClick={()=>dispatch({type:'tambah'})} color="danger">+</Button></Col>
-                        <Col>{count.jumlah}</Col>
-                        <Col><Button onClick={()=>dispatch({type:'kurang'})} >-</Button></Col>
-
+                        <Col><Button onClick={()=> countContext.keranjangDispatch({type:'tambah'})} color="danger">+</Button></Col>
+                        <Col>{countContext.keranjangState.jumlah}</Col>
+                        <Col><Button onClick={()=> countContext.keranjangDispatch({type:'kurang'})} >-</Button></Col>
+                      
                     </Row>
                     <br/>
-                    <Button color="success" size="lg">Total Rp. {count.hargatotal}</Button>
+                    <Button color="success" size="lg">Total Rp. {countContext.keranjangState.hargatotal}</Button>
+                    <hr/>
+                    <NavLink to='/tagihan'>Tagihan Belanja</NavLink>
                 </Col>
             </Row>
         </Container>
