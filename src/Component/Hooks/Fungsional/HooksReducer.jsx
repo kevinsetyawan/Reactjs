@@ -13,11 +13,11 @@ function HooksReducer() {
             <Row>
                 <Col xs="6">
                     <Card>
-                        <CardImg top width="100%" src="https://placeimg.com/640/480/tech" alt="Card image cap" />
+                        <CardImg top width="100%" src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//96/MTA-3008974/kenwood_kenwood-ddx419bt-double-din-head-unit_full04.jpg?output-format=webp" alt="Card image cap" />
                     </Card>
                 </Col>
                 <Col xs="6">
-                    <h3>ASUS PRO</h3>
+                    <h3>KENWOOD - DDX419BT</h3>
                     <p>Harga</p>
                     <h3>Rp. {countContext.keranjangState.hargatotal}</h3>
                     <p>Jumlah</p>

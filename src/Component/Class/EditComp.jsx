@@ -11,10 +11,10 @@ class EditComp extends PureComponent {
         super(props)
 
         this.state = {
-            id_mahasiswa: this.props.location.state.id_mahasiswa,
-            nim: this.props.location.state.nim,
-            nama: this.props.location.state.nama,
-            jurusan: this.props.location.state.jurusan,
+            id_barang: this.props.location.state.id_barang,
+            kode_barang: this.props.location.state.kode_barang,
+            nama_barang: this.props.location.state.nama_barang,
+            harga: this.props.location.state.harga,
             response: '',
             display: 'none'
         }
@@ -24,12 +24,12 @@ class EditComp extends PureComponent {
         this.setState({[e.target.name] : e.target.value})
     }
 
-    ubahMahasiswa = (idmahasiswa) => {
+    ubahMahasiswa = (idbarang) => {
         const data = qs.stringify({
-            id_mahasiswa: idmahasiswa,
-            nim: this.state.nim,
-            nama: this.state.nama,
-            jurusan: this.state.jurusan
+            id_barang: idbarang,
+            kode_barang: this.state.kode_barang,
+            nama_barang: this.state.nama_barang,
+            harga: this.state.harga
         });
 
         axios.put(api+ '/ubah', data)
@@ -57,29 +57,29 @@ class EditComp extends PureComponent {
                 </Alert>
                 <Form className="form">
                     <Col>
-                        <Label>NIM</Label>
+                        <Label>Kode Barang</Label>
                         <FormGroup>
                             <Row>
                                 <Col>
-                                    <Input type="text" name="nim" value={this.state.nim} onChange={this.handleChange} placeholder="Masukan NIM" />
+                                    <Input type="text" name="kode_barang" value={this.state.kode_barang} onChange={this.handleChange} placeholder="Masukan Kode Barang" />
                                 </Col>
                             </Row>
                         </FormGroup>
 
-                        <Label>Nama</Label>
+                        <Label>Nama Barang</Label>
                         <FormGroup>
                             <Row>
                                 <Col>
-                                    <Input type="text" name="nama" value={this.state.nama} onChange={this.handleChange} placeholder="Masukan Nama" />
+                                    <Input type="text" name="nama_barang" value={this.state.nama_barang} onChange={this.handleChange} placeholder="Masukan Nama Barang" />
                                 </Col>
                             </Row>
                         </FormGroup>
 
-                        <Label>Jurusan</Label>
+                        <Label>Harga</Label>
                         <FormGroup>
                             <Row>
                                 <Col>
-                                    <Input type="text" name="jurusan" value={this.state.jurusan} onChange={this.handleChange} placeholder="Masukan Jurusan" />
+                                    <Input type="text" name="harga" value={this.state.harga} onChange={this.handleChange} placeholder="Masukan Harga Barang" />
                                 </Col>
                             </Row>
                         </FormGroup>
@@ -87,7 +87,7 @@ class EditComp extends PureComponent {
                         <FormGroup>
                             <Row>
                                 <Col>
-                                    <Button type="button" onClick={()=>this.ubahMahasiswa(this.state.id_mahasiswa)}>Update</Button>
+                                    <Button type="button" onClick={()=>this.ubahMahasiswa(this.state.id_barang)}>Update Barang</Button>
                                 </Col>
                             </Row>
                         </FormGroup>

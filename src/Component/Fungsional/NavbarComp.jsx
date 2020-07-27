@@ -24,8 +24,9 @@ const NavbarComp = (props) => {
 
     return (
         <div>
+            <p class="bg-primary text-blue"><marquee>Pusat Penjualan Audio Mobil</marquee></p>
             <Navbar color="light" light expand="md">
-                <NavbarBrand to="/">reactstrap</NavbarBrand>
+                <NavbarBrand to="/">Vins Car Audio</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>
@@ -36,22 +37,17 @@ const NavbarComp = (props) => {
                             <NavLink to="/about" className="nav-link">About</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink to="/mahasiswa" className="nav-link">Mahasiswa</NavLink>
+                            <NavLink to="/barang" className="nav-link">Barang</NavLink>
                         </NavItem>
-                        <NavItem>
-                            <NavLink to="/kelas" className="nav-link">Class</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink to="/hooks" className="nav-link">Hook</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink to="/useeffects" className="nav-link">Use Effects</NavLink>
-                        </NavItem>
+                                             
                         <NavItem>
                             <NavLink to="/produk" className="nav-link">Produk</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink to="/reducer" className="nav-link">Reducer</NavLink>
+                            <NavLink to="/reducer" className="nav-link">Pesan</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink to="/register" className="nav-link">Register</NavLink>
                         </NavItem>
                     </Nav>
 

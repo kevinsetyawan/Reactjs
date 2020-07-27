@@ -11,7 +11,7 @@ class ListComp extends PureComponent {
         super(props)
 
         this.state = {
-            mahasiswa: [],
+            tb_barang: [],
             response: '',
             display: 'none'
         }
@@ -20,15 +20,15 @@ class ListComp extends PureComponent {
     componentDidMount() {
         axios.get(api + '/tampil').then(res => {
             this.setState({
-                mahasiswa: res.data.values
+                tb_barang: res.data.values
             })
         })
     }
 
-    Deletemahasiswa = (idmahasiswa) => {
-        const { mahasiswa } = this.state
+    Deletemahasiswa = (idbarang) => {
+        const { tb_barang } = this.state
         const data = qs.stringify({
-            id_mahasiswa: idmahasiswa
+            id_barang: idbarang
         })
 
         axios.delete(api + '/hapus',
@@ -40,7 +40,7 @@ class ListComp extends PureComponent {
             if (json.data.status === 200) {
                 this.setState({
                     response: json.data.values,
-                    mahasiswa: mahasiswa.filter(mahasiswa => mahasiswa.id_mahasiswa !== idmahasiswa),
+                    tb_barang: tb_barang.filter(tb_barang => tb_barang.id_barang !== idbarang),
                     dislpay: 'block'
                 })
                 //this.props.history.push('/mahasiswa')
@@ -57,7 +57,7 @@ class ListComp extends PureComponent {
     render() {
         return (
             <Container>
-                <h2>Data mahasiswa</h2>
+                <h2>Data Barang</h2>
                 <Alert color="success" style={{ dislpay: this.state.display }}>
                     {this.state.response}
                 </Alert>
@@ -66,35 +66,35 @@ class ListComp extends PureComponent {
                 <Table className="table-bordered">
                     <thead>
                         <tr>
-                            <th>NIM</th>
-                            <th>Nama</th>
-                            <th>Jurusan</th>
+                            <th>Kode Barang</th>
+                            <th>Nama Barang</th>
+                            <th>Harga Barang</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.mahasiswa.map(mahasiswa =>
-                            <tr key={mahasiswa.id_mahasiswa}>
-                                <td>{mahasiswa.nim}</td>
-                                <td>{mahasiswa.nama}</td>
-                                <td>{mahasiswa.jurusan}</td>
+                        {this.state.tb_barang.map(tb_barang =>
+                            <tr key={tb_barang.id_barang}>
+                                <td>{tb_barang.kode_barang}</td>
+                                <td>{tb_barang.nama_barang}</td>
+                                <td>{tb_barang.harga}</td>
                                 <td>
                                     <Link to=
                                         {
                                             {
                                                 pathname: '/mahasiswa/edit',
                                                 state: {
-                                                    id_mahasiswa: mahasiswa.id_mahasiswa,
-                                                    nim: mahasiswa.nim,
-                                                    nama: mahasiswa.nama,
-                                                    jurusan: mahasiswa.jurusan
+                                                    id_barang: tb_barang.id_barang,
+                                                    kode_barang: tb_barang.kode_barang,
+                                                    nama_barang: tb_barang.nama_barang,
+                                                    harga: tb_barang.harga
                                                 }
                                             }
                                         }>
                                         <Button>Edit</Button>
                                     </Link>
                                     <span> </span>
-                                    <Button onClick={() => this.Deletemahasiswa(mahasiswa.id_mahasiswa)} color="danger">Hapus</Button>
+                                    <Button onClick={() => this.Deletemahasiswa(tb_barang.id_barang)} color="danger">Hapus</Button>
                                 </td>
                             </tr>
                         )}
